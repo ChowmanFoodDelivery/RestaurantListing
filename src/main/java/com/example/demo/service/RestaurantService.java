@@ -27,4 +27,10 @@ public class RestaurantService {
 		
 	}
 
+	public RestaurantDTO addRestaurantInDB(RestaurantDTO restaurantDTO) {
+		
+		Restaurant savedRestaurant = restaurantrepo.save(RestaurantMapper.INSTANCE.mapRestaurantDTOToRestaurant(restaurantDTO));
+			return RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(savedRestaurant);
+	}
+
 }
